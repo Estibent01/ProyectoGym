@@ -1,0 +1,57 @@
+.bg-custom {
+	background-color: #007986;
+	color: #fff;
+}
+
+.btn-custom {
+	background-color: #007986;
+	color: #fff;
+	transition: all 0.5;
+}
+
+
+.btn-custom:hover {
+	background-color: #014f49;
+	color: #fff;
+	transform: (1.05);
+}
+
+.btn-custom-danger {
+	background-color: #c20031;
+	color: #fff;
+	transition: all 0.5;
+}
+
+
+.btn-custom-danger:hover {
+	background-color: #900b29;
+	color: #fff;
+	transform: (1.05);
+}
+
+ul.pagination {
+	align-items: center; 
+	justify-content: center;
+}
+
+.page-item.active .page-link{
+	border: 1px solid #007986;
+	background-color: #007986;
+	color: #fff;
+}
+
+.page-item.active .page-link{
+	color: #014f49;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus{
+	background-color: #007986;
+	color: #fff;
+}
+
+.card-title{
+	background-color: #007986;
+	color: #fff;
+	padding: 10px;
+}
