@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Maquina;
+use App\Machine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class MaquinaController extends Controller
 {
@@ -14,7 +16,7 @@ class MaquinaController extends Controller
      */
     public function index()
     {
-        $maquinas = Maquina::paginate(20);
+         $maquinas = Machine::paginate(20);
         return view('maquinas.index')->with('maquinas',$maquinas);
     }
 
@@ -36,7 +38,7 @@ class MaquinaController extends Controller
      */
     public function store(Request $request)
     {
-        $maquina = new Maquina;
+        $maquina = new Machine;
         $maquina->nombre_maquina                 = $request->nombre_maquina;
         $maquina->descripcion                        = $request->descripcion;
      
@@ -58,7 +60,7 @@ class MaquinaController extends Controller
      */
     public function show($id)
     {
-        $maquina = Maquina::findOrFail($id);
+        $maquina = Machine::findOrFail($id);
         return view('maquinas.show')->with('maquina', $maquina);
     }
 
@@ -70,7 +72,7 @@ class MaquinaController extends Controller
      */
     public function edit($id)
     {
-        $maquina = Maquina::findOrFail($id);
+        $maquina = Machine::findOrFail($id);
         return view('maquinas.edit')->with('maquina',$maquina);
     }
 
@@ -83,7 +85,7 @@ class MaquinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $maquina =  Maquina::find($id);
+        $maquina =  Machine::find($id);
         $maquina->nombre_maquina         = $request->nombre_maquina;
         $maquina->descripcion             = $request->descripcion;
        

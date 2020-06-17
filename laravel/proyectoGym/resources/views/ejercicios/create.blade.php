@@ -16,7 +16,7 @@
                             <select name="categoria" class="form-control @error('categoria') is-invalid @enderror">
                                 <option value="">Seleccione la Categoria...</option>
                                 @foreach ($cats as $cat)
-                                    <option value="{{ $cat->id }}" @if(old('categoria')== $cat->name) selected @endif>{{ $cat->name}}</option>
+                                    <option value="{{ $cat->id }}" @if(old('categoria')== $cat->nombre_categoria) selected @endif>{{ $cat->nombre_categoria}}</option>
                                 @endforeach
                             </select>
                                                             @error('categoria')
@@ -55,9 +55,10 @@
                             <br>
                             <select name="musculo_ejercicio" class="form-control">
 
-                                <option value="">Musculo...</option>
-                                <option value="cuello">cuello</option>
-                                <option value=""></option>
+                                <option value="">Seleccione el musculo...</option>
+                                @foreach ($musculos as $musculo)
+                                    <option value="{{ $musculo->id }}" @if(old('musculo_ejercicio')== $musculo->nombre) selected @endif>{{ $musculo->nombre}}</option>
+                                @endforeach
     
                             </select>
             
@@ -80,10 +81,10 @@
                             </div>
                             <br>
                             <select name="maquina_ejercicio" class="form-control">
-
-                            <option value="">Maquina...</option>
-                            <option value="caminadora">Caminadora</option>
-                            <option value=""></option>
+                                <option value="">Seleccione el Maquina...</option>
+                                @foreach ($maquinas as $maquina)
+                                <option value="{{ $maquina->id }}" @if(old('maquina_ejercicio')== $maquina->nombre_maquina) selected @endif>{{ $maquina->nombre_maquina}}</option>
+                                @endforeach
 
                             </select>
                                     <br>

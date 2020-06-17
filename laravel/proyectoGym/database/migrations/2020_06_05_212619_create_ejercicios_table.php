@@ -31,7 +31,7 @@ class CreateEjerciciosTable extends Migration
             $table->string('imagen');
 
             $table->unsignedBigInteger('maquina_ejercicio');
-            $table->foreign('maquina_ejercicio')->references('id')->on('maquinas');
+            $table->foreign('maquina_ejercicio')->references('id')->on('machines');
 
             $table->timestamps();
         });

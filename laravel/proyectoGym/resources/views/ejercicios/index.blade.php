@@ -34,7 +34,7 @@
 		<tbody id="content">
 			@foreach ($ejercicios as $ejercicio)
    <tr>
-				<td>{{ $ejercicio->categoria }}</td>
+				<td>{{ $ejercicios->cat->nombre_categoria }}</td>
 				<td>{{ $ejercicio->nombre_ejercicio }}</td>
 				<td>
 					<a href=" {{ url('ejercicios/'.$ejercicio->id) }} " class="btn btn-sm btn-custom">

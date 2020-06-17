@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Ejercicio;
+use App\Categoria;
+use App\Musculo;
+use App\Machine;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -18,7 +21,8 @@ class EjercicioController extends Controller
     public function index()
     {
         $ejercicios = Ejercicio::paginate(20);
-        return view('ejercicios.index')->with('ejercicios',$ejercicios);
+        return view('ejercicios.index')
+                    ->with('ejercicios',$ejercicios);
     }
 
     /**
@@ -28,7 +32,13 @@ class EjercicioController extends Controller
      */
     public function create()
     {
-        return view('ejercicios.create');
+        $cats     = Categoria::all();
+        $musculos = Musculo::all();
+        $maquinas = Machine::all();
+        return view('ejercicios.create')
+                    ->with('cats',$cats)
+                    ->with('musculos',$musculos)
+                    ->with('maquinas',$maquinas);
     }
 
     /**
@@ -72,7 +82,14 @@ class EjercicioController extends Controller
     public function show($id)
     {
         $ejercicio = Ejercicio::findOrFail($id);
-        return view('ejercicios.show')->with('ejercicio', $ejercicio);
+        $cats     = Categoria::all();
+        $musculos = Musculo::all();
+        $maquinas = Machine::all();
+        return view('ejercicios.show')
+                ->with('ejercicio', $ejercicio)
+                ->with('cats',$cats)
+                ->with('musculos',$musculos)
+                ->with('maquinas',$maquinas);
     }
 
     /**
@@ -85,7 +102,14 @@ class EjercicioController extends Controller
     {
         
         $ejercicio = Ejercicio::findOrFail($id);
-        return view('ejercicios.edit')->with('ejercicio',$ejercicio);
+        $cats     = Categoria::all();
+        $musculos = Musculo::all();
+        $maquinas = Machine::all();
+        return view('ejercicios.edit')
+                    ->with('ejercicio',$ejercicio)
+                    ->with('cats',$cats)
+                    ->with('musculos',$musculos)
+                    ->with('maquinas',$maquinas);
     }
 
     /**

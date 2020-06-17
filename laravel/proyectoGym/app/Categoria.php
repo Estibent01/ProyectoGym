@@ -10,7 +10,7 @@ class Categoria extends Model
         'nombre_categoria',
         'descripcion_categoria',
         'imagen',
-        'Id-usuario',
+        'Id_usuario',
     ];
 
     public function users(){

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Categoria;
+use App\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        return view('categorias.create');
+        $categorias = Categoria::all();
+        return view('categorias.create')
+                    ->with('categorias',$categorias);
     }
 
     /**
@@ -41,6 +44,7 @@ class CategoriasController extends Controller
         $categoria = new Categoria;
         $categoria->nombre_categoria           = $request->nombre_categoria;
         $categoria->descripcion_categoria      = $request->descripcion_categoria;
+        $categoria->Id_usuario                 = $request->Id_usuario;
 
 
         if($request->hasFile('imagen')){
@@ -93,6 +97,8 @@ class CategoriasController extends Controller
                $categoria = Categoria::find($id);
                $categoria->nombre_categoria  = $request->nombre_categoria;
                $categoria ->descripcion_categoria     = $request->descripcion_categoria;
+               $categoria->Id_usuario                 = $request->Id_usuario;
+
                if ($request->hasFile('imagen')) {
                    $file = time().'.'.$request->imagen->extension();
                    $request->imagen->move(public_path('imgs'), $file);

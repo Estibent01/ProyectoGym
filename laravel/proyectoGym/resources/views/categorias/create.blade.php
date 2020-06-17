@@ -44,8 +44,20 @@
                                                                 </span>
                                                             @enderror
                             </div>
-                            <br>                           
-                                    <br>
+                            <br>    
+                            <select name="Id_usuario" class="form-control @error('Id_usuario') is-invalid @enderror">
+                                <option value="">Seleccione el Usuario</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" @if(old('Id_usuario')== $user->nombre) selected @endif>{{ $user->nombre}}</option>
+                                @endforeach
+                            </select>
+                                                     @error('Id_usuario')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                            <br>
+
                                     <button class="btn btn-custom" type="submit"><i class="fa fa-save "></i> Guardar</button>
                                 </form>
                                         </div>

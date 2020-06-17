@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Lista de Musuculos')
+@section('title','Lista de Categorias')
 
 @section('content')
 
